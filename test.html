@@ -1,0 +1,34 @@
+<script src="./test.js"></script>
+<script src="./person.js"></script>
+
+<input type="text" name="cnt" id="cnt">
+<input type="button" id="cntBnt" value="생성" onclick="makeTable()"> 
+<div id="result_div"></div>
+
+<script>
+    // var t = new Test(); //new 메모리 생성
+    var p = new Person('eunju', 40, 'women', 'seoul');
+    //p.writePersonInfo();
+    //p.setName();
+    //p.getName();
+    
+    //p.name = 'change name?'
+    //p.alertName();
+
+    p.play();
+    function makeTable(){
+        var cntObj = document.getElementById("cnt");
+        var count = new Number(cntObj.value);
+        var str = "<table border='1'>";
+        for(var i=1; i<=count; i++){
+            str += i + '<tr>';
+                for (var j=1;j<=count; j++){
+                    str += '<td>' + ((i-1)*2+j) + '</td>'
+                }
+                str +='</tr>'
+                
+        }
+        str += '</table>';
+        document.getElementById('result_div').innerHTML = str;
+    }
+</script>
