@@ -26,19 +26,33 @@ class Bird implements Animal{
     name:string; 
     age:number;
     height:number;
-    address:string;
-    constructor(name:string, age:number){
-        this.name = name;
-        this.age = age;
+    kind:string;
+    constructor(kind:string){
+        this.kind = kind;
     }
     printInfo(){
-        console.log("이름 : " + this.name);
-        console.log("나이 : " + this.age);
-    }
-    printName():void{
-        console.log("이름: " + this.name);
+        console.log("이 새의 종류는 " + this.kind);
     }
 }
+class Chicken extends Bird{
+    constructor(){
+        super("닭");
+    }
+    printInfo() :void{
+        super.printInfo();
+    }
+}
+
+class Egg extends Chicken{
+
+}
+let c:Animal = new Chicken();
+c.printInfo();
+c = new Egg();
+c.printInfo();
+
+
+
 function printSomething( a:Animal){
     a.printInfo();
 }
